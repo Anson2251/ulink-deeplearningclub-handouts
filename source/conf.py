@@ -194,23 +194,25 @@ html_static_path = ['_static']
 
 # Sphinx Book Theme configuration
 html_context = {
-    'github_repo': 'ulink-deep-learning-club',
+    'github_user': 'ulink-deep-learning-club',
     'github_repo': 'ulink-deeplearningclub-handouts',
     'github_version': 'main',
     "doc_path": "source",
 }
 
 html_theme_options = {
-    "header_start": ["header-brand.html", "version-switcher.html"],
-    "header_end": ["search-button.html", "lang-switcher.html", "theme-switcher.html", "external-links.html"],
+    "header_start": ["header-brand.html"],
+    "header_end": ["search-button.html", "theme-switcher.html", "external-links.html"],
     "sidebar_primary": ["sidebar-nav.html"],
-    "sidebar_secondary": ["sidebar-toc.html", "repo-stats.html", "edit-this-page.html", "sidebar-ethical-ads.html"],
+    "sidebar_secondary": ["repo-stats.html", "edit-this-page.html", "sidebar-toc.html"],
     "article_header": ["breadcrumbs.html"],
     "article_footer": ["related-pages.html"],
     "footer": ["footer-copyright.html", "external-links.html"],
-
     "header_tabs": False,
-
+    "page_actions": False,
+    "external_links": [
+        "https://github.com/ulink-deep-learning-club/ulink-deeplearningclub-handouts"
+    ],
     "default_mode": "auto",
 }
 
