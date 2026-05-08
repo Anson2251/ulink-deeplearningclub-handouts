@@ -6,6 +6,7 @@
 深度学习的核心问题是什么？**让机器从数据中学习规律**。
 
 但如何做到呢？本章将揭示答案背后的数学机制：
+
 - **计算图**——将复杂计算可视化为数据流图，让数学变得直观
 - **激活函数**——引入非线性，让网络能够拟合任意复杂函数
 - **损失函数**——定义"什么是好的预测"，量化模型与目标的差距
@@ -28,7 +29,7 @@
 ## 本章概览
 
 | 章节 | 内容 | 核心收获 |
-|------|------|----------|
+| ---------- | ---------- | ---------- |
 | {doc}`introduction` | 问题引入与整体概览 | 为什么需要这些数学工具？ |
 | {doc}`computational-graph` | 计算图原理 | 复杂计算的可视化表达 |
 | {doc}`task-formulations` | 任务类型与优化目标 | 分类 vs 回归的数学表述 |
@@ -86,7 +87,7 @@ graph LR
 本章为整个系列奠定基础：
 
 | 本章概念 | 后续章节应用 |
-|---------|-------------|
+| ---------- | ---------- |
 | {ref}`computational-graph` | {doc}`../neural-network-basics/fc-layer-basics` 中的网络架构 |
 | {ref}`back-propagation` | {doc}`../neural-network-basics/neural-training-basics` 中的训练流程 |
 | {ref}`gradient-descent` | {doc}`../pytorch-practice/optimiser` 中的优化器 |

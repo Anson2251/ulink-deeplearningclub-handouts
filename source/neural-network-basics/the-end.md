@@ -10,7 +10,7 @@
 ### 核心概念网络
 
 | 概念 | 来源 | 关键洞察 |
-|-----|------|---------|
+| ---------- | ---------- | ---------- |
 | **归纳偏置** | {doc}`introduction` | 好的先验知识比暴力学习更高效 |
 | **局部感受野** | {doc}`cnn-basics` | 相邻像素相关是图像的物理规律 |
 | **权值共享** | {doc}`cnn-basics` | 一个卷积核检测全局相同特征 |
@@ -23,7 +23,7 @@
 {doc}`exp-cmp`用数据证明了理论分析：
 
 | 对比维度 | 全连接网络 | CNN | 关键原因 |
-|---------|-----------|-----|---------|
+| ---------- | ---------- | ---------- | ---------- |
 | 参数量 | 235K | 61K (-74%) | 权值共享减少冗余 |
 | 准确率 | 97.8% | 98.9% (+1.1%) | 归纳偏置匹配任务结构 |
 | 训练速度 | 较慢 | 较快 | 更好的初始化加速收敛 |
@@ -38,7 +38,7 @@
 自 LeNet 以来，深度学习经历了爆炸性的发展。回顾架构演进：
 
 | 架构 | 年份 | 参数量 | 关键创新 | 与LeNet的关联 |
-|-----|------|-------|---------|--------------|
+| ---------- | ---------- | ---------- | ---------- | ---------- |
 | **LeNet** | 1998 | 60K | 卷积+池化 | 奠基之作 {cite}`lecun1998gradient` |
 | **AlexNet** | 2012 | 60M | ReLU+Dropout+GPU | 深度翻倍，激活函数改进 {cite}`krizhevsky2012imagenet` |
 | **VGG** | 2014 | 138M | 小卷积核堆叠 | 3×3卷积替代5×5，深度×3 {cite}`simonyan2014very` |
@@ -96,21 +96,25 @@
 掌握了神经网络基础后，你可以探索以下高级主题：
 
 ### 1. 架构创新
+
 - **ResNet/DenseNet**：解决深层网络训练难题
 - **Transformer**：注意力机制替代卷积，主导NLP和视觉
 - **神经架构搜索（NAS）**：自动化发现最优架构
 
 ### 2. 效率优化
+
 - **模型压缩**：剪枝、量化、知识蒸馏
 - **轻量化设计**：MobileNet、EfficientNet面向边缘设备
 - **动态计算**：根据输入调整计算量
 
 ### 3. 学习范式
+
 - **自监督学习**：减少对标注数据的依赖
 - **持续学习**：不遗忘旧知识地学习新任务
 - **联邦学习**：分布式训练保护隐私
 
 ### 4. 多模态与通用智能
+
 - **多模态学习**：融合图像、文本、语音
 - **大语言模型**：GPT、Claude展示的规模效应
 - **具身智能**：机器人与深度学习的结合
@@ -122,30 +126,36 @@
 ### 英文资源
 
 **快速上手**：
+
 - [PyTorch官方教程](https://pytorch.org/tutorials/)（从MNIST到ResNet的完整示例代码）
 - [CNN Explainer](https://poloclub.github.io/cnn-explainer/)（交互式可视化CNN每一层的操作）
 - [3Blue1Brown深度学习系列](https://www.youtube.com/playlist?list=PLZHQObOWTQDNU6R1_67000Dx_ZCJB-3pi)（第3-4集讲解反向传播的几何直觉）
 
 **深入理解**：
+
 - 《深度学习》（Goodfellow）第9章（卷积网络）、第11章（实用方法）
 - [CS231n斯坦福课程](https://cs231n.stanford.edu/)（李飞飞等，CNN与计算机视觉的经典课程，含完整作业）
-- [ distill.pub - Feature Visualization ](https://distill.pub/2017/feature-visualization/)（交互式可视化CNN学到的特征）
+- [distill.pub - Feature Visualization](https://distill.pub/2017/feature-visualization/)（交互式可视化CNN学到的特征）
 
 **动手实践**：
+
 - [Kaggle Learn - Intro to Deep Learning](https://www.kaggle.com/learn/intro-to-deep-learning)（免费，浏览器内运行，含CNN实战）
 - [fast.ai Part 1](https://course.fast.ai/)（Practical Deep Learning for Coders，Top-down实战导向）
 
 ### 中文资源
 
 **视频课程**：
+
 - [李宏毅机器学习2021](https://www.youtube.com/playlist?list=PLJV_el3uVTsMhtt7_Y6sgTHGHp1Vb2P2J)（台大教授，CNN章节讲解清晰，含LeNet到ResNet的演进）
 - [莫烦Python - 神经网络教程](https://mofanpy.com/tutorials/machine-learning/torch/)（中文PyTorch入门，含CNN可视化）
 
 **文档教程**：
+
 - [PyTorch官方中文文档 - 深度学习 with PyTorch: A 60 Minute Blitz](https://pytorch.apachecn.org/#/docs/1.7/03)（官方中文翻译，从MNIST到CIFAR-10）
 - [动手学深度学习 - 卷积神经网络章节](https://zh.d2l.ai/chapter_convolutional-neural-networks/index.html)（李沐等，含LeNet、AlexNet、VGG、ResNet的完整实现）
 
 **经典论文精读**：
+
 - LeNet-5：{cite}`lecun1998gradient` —— 现代CNN的奠基之作
 - AlexNet：{cite}`krizhevsky2012imagenet` —— 重新点燃深度学习热情
 - ResNet：{cite}`he2016deep` —— 深层网络训练的突破
@@ -157,6 +167,7 @@
 通过本章的学习，你不仅掌握了神经网络的基础知识，更重要的是建立了**从问题出发、用实验验证、以理论升华**的深度学习思维方式。
 
 **记住**：
+
 - **归纳偏置**是架构设计的灵魂
 - **实验验证**是检验真理的唯一标准
 - **缩放定律**指导资源的最优配置

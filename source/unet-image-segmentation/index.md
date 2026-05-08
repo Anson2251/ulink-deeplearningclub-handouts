@@ -23,7 +23,7 @@ CNN 的编码器擅长前者（下采样→语义），但牺牲了后者。U-Ne
 ## 本章概览
 
 | 章节 | 内容 | 与前面章节的联系 |
-|------|------|-----------------|
+| ------ | --------- | --------- |
 | {doc}`introduction` | 分割问题与 U-Net 的核心思想 | "在哪"和"是什么"必须同时解决 |
 | {doc}`u-net` | U 形架构：编码器、解码器、跳跃连接 | {doc}`../neural-network-basics/le-net` 的对称扩展 |
 | {doc}`loss-func` | Dice 损失与交叉熵损失 | {ref}`loss-functions` 的进阶应用 |
@@ -50,6 +50,7 @@ graph LR
 {doc}`../neural-network-basics/cnn-basics` 中我们学会了 CNN 如何用卷积、池化、全连接做**分类**。但 CNN 的编码器通过下采样获取语义信息时，丢失了精确的空间位置信息。
 
 U-Net 的解决方案：
+
 - **编码器**：像 CNN 一样下采样，提取高级语义
 - **解码器**：对称地上采样，恢复空间分辨率
 - **跳跃连接**：把编码器的低层特征直接传到解码器，保留细节
@@ -57,7 +58,7 @@ U-Net 的解决方案：
 **学习路径**：理解分割问题 → 掌握 U-Net 架构 → 动手实现 → 训练技巧
 
 | 前置章节 | 本章应用 |
-|---------|---------|
+| ------ | --------- |
 | {doc}`../neural-network-basics/cnn-basics` | 卷积/池化 → 编码器的构建块 |
 | {doc}`../neural-network-basics/le-net` | 编码器-分类器 → 编码器-解码器 |
 | {doc}`../attention-mechanisms/index` | 注意力 → Attention U-Net |

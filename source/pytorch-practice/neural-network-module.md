@@ -146,6 +146,7 @@ align: center
 ### 什么是 nn.Module？
 
 `nn.Module` 是 PyTorch 中所有神经网络组件的**基类**。它提供了：
+
 - 参数管理（自动注册可学习参数）
 - 前向传播定义（`forward` 方法）
 - 设备转移（`.to('cuda')`）

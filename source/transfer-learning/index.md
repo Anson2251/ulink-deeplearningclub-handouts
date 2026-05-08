@@ -25,7 +25,7 @@
 ## 本章概览
 
 | 章节 | 内容 | 与前面章节的联系 |
-|------|------|-----------------|
+| ------ | --------- | --------- |
 | {doc}`part1-intro` | 迁移学习的核心动机与形式化定义 | 为什么要迁移？ |
 | {doc}`part2-taxonomy` | 从情境和方法两个维度的分类体系 | 有哪些迁移方式？ |
 | {doc}`part3-model-transfer` | 特征提取、微调、分层学习率等核心技术 | {doc}`../pytorch-practice/optimiser` 的高级应用 |
@@ -54,7 +54,7 @@ graph LR
 **学习路径**：理解思想 → 掌握分类 → 动手实践 → 解决实际问题
 
 | 前置章节 | 本章应用 |
-|---------|---------|
+| ------ | --------- |
 | {doc}`../pytorch-practice/neural-network-module` | 加载预训练模型、替换分类头 |
 | {doc}`../pytorch-practice/optimiser` | 分层学习率、参数冻结 |
 | {doc}`../pytorch-practice/train-workflow` | 完整训练流程、早停机制 |

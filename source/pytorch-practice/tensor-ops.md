@@ -79,7 +79,7 @@ print(f"元素数量: {x.numel()} == {y.numel()}")  # True
 
 **在神经网络中的应用**：
 
-~~~python
+```python
 # CNN → 全连接的经典转换
 conv_output = torch.randn(64, 32, 28, 28)  # batch=64, 32通道, 28×28特征图
 
@@ -88,11 +88,12 @@ fc_input = conv_output.reshape(64, -1)  # -1 表示自动计算
 print(f"展平后: {fc_input.shape}")  # torch.Size([64, 25088])
 
 # 这就是 {doc}`../neural-network-basics/le-net` 中 C5 层到 F6 层的操作！
-~~~
+```
 
 ### squeeze 与 unsqueeze：增减维度
 
 **直觉**：
+
 - **unsqueeze**：在指定位置插入一个维度为 1 的轴（增加一个"壳"）
 - **squeeze**：移除所有维度为 1 的轴（剥掉"壳"）
 
@@ -107,7 +108,7 @@ align: center
 squeeze 和 unsqueeze 操作示意图：squeeze 移除维度为 1 的轴，unsqueeze 在指定位置添加维度为 1 的轴。图中展示了 2D 张量如何通过不同的 unsqueeze 操作变成不同形状的 3D 张量。
 ```
 
-~~~python
+```python
 # 单张图片：[3, 224, 224] —— 没有 batch 维度
 image = torch.randn(3, 224, 224)
 print(f"原始: {image.shape}")  # torch.Size([3, 224, 224])
@@ -119,11 +120,11 @@ print(f"加 batch 维度: {batch_image.shape}")  # torch.Size([1, 3, 224, 224])
 # 也可以在其他位置添加
 channel_first = image.unsqueeze(1)  # 在通道维度前添加
 print(f"在中间添加: {channel_first.shape}")  # torch.Size([3, 1, 224, 224])
-~~~
+```
 
 **squeeze 的用法**：
 
-~~~python
+```python
 # 模型输出的 logits：[batch, 1] —— 多余的维度
 logits = torch.randn(64, 1)
 
@@ -134,9 +135,9 @@ print(f"squeeze 后: {predictions.shape}")  # torch.Size([64])
 # 注意：squeeze 只移除维度为 1 的轴，不会删除其他维度
 x = torch.randn(2, 1, 3, 1, 4)
 print(f"squeeze 后: {x.squeeze().shape}")  # torch.Size([2, 3, 4])
-~~~
+```
 
-~~~{admonition} 什么时候用 squeeze/unsqueeze？
+```{admonition} 什么时候用 squeeze/unsqueeze？
 :class: tip
 
 **unsqueeze 常见场景**：
@@ -146,13 +147,13 @@ print(f"squeeze 后: {x.squeeze().shape}")  # torch.Size([2, 3, 4])
 **squeeze 常见场景**：
 - 移除模型输出中多余的维度
 - 计算损失前调整形状
-~~~
+```
 
 ### transpose 与 permute：重排维度顺序
 
 **直觉**：想象一个魔方，你可以旋转它的面——元素位置改变，但数据不变。
 
-~~~python
+```python
 # 原始：[batch, channels, height, width] —— PyTorch 默认格式
 x = torch.randn(2, 3, 4, 5)
 print(f"原始: {x.shape}")  # torch.Size([2, 3, 4, 5])
@@ -164,22 +165,22 @@ print(f"transpose: {y.shape}")  # torch.Size([2, 4, 3, 5])
 # permute：任意重排所有维度
 z = x.permute(0, 2, 3, 1)  # [batch, height, width, channels]
 print(f"permute: {z.shape}")  # torch.Size([2, 4, 5, 3])
-~~~
+```
 
 **实际应用：图像格式转换**
 
-~~~python
+```python
 # OpenCV 读取的图片是 [H, W, C]（通道在最后）
 opencv_image = torch.randn(224, 224, 3)
 
 # 转换为 PyTorch 格式 [C, H, W]（通道在最前）
 pytorch_image = opencv_image.permute(2, 0, 1)
 print(f"PyTorch 格式: {pytorch_image.shape}")  # torch.Size([3, 224, 224])
-~~~
+```
 
 ### flatten：完全展平
 
-~~~python
+```python
 # 卷积层输出：[batch, 32, 7, 7]
 conv_out = torch.randn(64, 32, 7, 7)
 
@@ -189,7 +190,7 @@ print(f"flatten: {fc_input.shape}")  # torch.Size([64, 1568])
 
 # 等价于
 fc_input = conv_out.reshape(64, -1)
-~~~
+```
 
 ## 广播机制：让不同形状的张量一起运算
 
@@ -197,14 +198,14 @@ fc_input = conv_out.reshape(64, -1)
 
 **直觉**：广播就像班级合影——小个子站在凳子上，大个子弯下腰，最终大家的脸在同一水平线上。
 
-~~~python
+```python
 # 场景 1：张量 + 标量
 x = torch.tensor([[1, 2], [3, 4]])
 y = x + 10  # 标量 10 被"广播"为 [[10, 10], [10, 10]]
 print(y)
 # tensor([[11, 12],
 #         [13, 14]])
-~~~
+```
 
 **广播规则**（从右到左比较维度）：
 1. 维度相等：可以广播
@@ -213,7 +214,7 @@ print(y)
 
 **广播可视化**：
 
-~~~{tikz} 广播机制示意图
+```{tikz} 广播机制示意图
 
 \begin{tikzpicture}[
     boxA/.style={draw, minimum width=0.7cm, minimum height=0.7cm, fill=blue!20, font=\small},
@@ -268,11 +269,11 @@ print(y)
 
 \end{tikzpicture}
 
-~~~
+```
 
 ### 广播示例
 
-~~~python
+```python
 # 场景 2：不同形状但兼容
 # A: [3, 1] —— 3 行 1 列
 # B: [1, 4] —— 1 行 4 列
@@ -287,11 +288,11 @@ print(C)
 # tensor([[11, 21, 31, 41],
 #         [12, 22, 32, 42],
 #         [13, 23, 33, 43]])
-~~~
+```
 
 ### 神经网络中的广播应用
 
-~~~python
+```python
 # 批归一化中的均值减法
 batch_data = torch.randn(64, 3, 224, 224)  # batch=64, 3通道
 
@@ -302,13 +303,13 @@ print(f"通道均值形状: {channel_mean.shape}")  # torch.Size([3])
 # 广播减法：channel_mean [3] → 自动广播为 [64, 3, 224, 224]
 normalized = batch_data - channel_mean.view(1, 3, 1, 1)
 print(f"归一化后: {normalized.shape}")  # torch.Size([64, 3, 224, 224])
-~~~
+```
 
 ## 索引与切片：精准定位数据
 
 ### 基本索引
 
-~~~python
+```python
 x = torch.randn(4, 5, 6)  # 类比：4 张图片，每张 5×6
 
 # 取第一张图片
@@ -319,11 +320,11 @@ first_row = x[:, 0]  # shape: [4, 6]
 
 # 取子张量
 patch = x[1:3, 2:4, :]  # shape: [2, 2, 6]
-~~~
+```
 
 ### 高级索引
 
-~~~python
+```python
 # 用索引张量选取
 x = torch.randn(5, 3)
 indices = torch.tensor([0, 2, 4])  # 选第 0、2、4 行
@@ -332,11 +333,11 @@ selected = x[indices]  # shape: [3, 3]
 # 布尔掩码
 mask = x > 0
 positive = x[mask]  # 一维张量，包含所有正数
-~~~
+```
 
 ### gather 与 scatter：复杂数据重排
 
-~~~python
+```python
 # gather：按索引收集数据
 src = torch.tensor([[1, 2], [3, 4], [5, 6]])  # [3, 2]
 index = torch.tensor([[0, 0], [1, 0], [0, 1]])  # [3, 2]
@@ -347,13 +348,13 @@ print(dst)
 # tensor([[1, 1],   # 第0行取 src[0,0], src[0,0]
 #         [4, 3],   # 第1行取 src[1,1], src[1,0]
 #         [5, 6]])  # 第2行取 src[2,0], src[2,1]
-~~~
+```
 
 ## 内存与性能
 
 ### 视图 vs 复制
 
-~~~python
+```python
 x = torch.randn(2, 3, 4)
 
 # view/reshape：共享内存（视图）
@@ -365,20 +366,20 @@ print(x[0, 0, 0])  # 999 —— x 也被修改了！
 z = x.clone().view(6, 4)
 z[0, 0] = 888
 print(x[0, 0, 0])  # 999 —— x 不受影响
-~~~
+```
 
-~~~{admonition} 什么时候需要 clone？
+```{admonition} 什么时候需要 clone？
 :class: caution
 
 **需要 clone 的场景**：
 - 你想修改张量但保留原始数据
 - 原地操作会导致梯度计算错误时
 - 需要断开源张量的计算图
-~~~
+```
 
 ### contiguous：内存连续性
 
-~~~python
+```python
 x = torch.randn(2, 3, 4)
 
 # transpose 后张量可能不连续
@@ -393,12 +394,12 @@ z = y.contiguous().view(6, 4)
 
 # 方法 2：直接用 reshape（自动处理）
 z = y.reshape(6, 4)
-~~~
+```
 
 ## 操作速查表
 
 | 操作 | 作用 | 神经网络场景 | 内存影响 |
-|------|------|-------------|---------|
+| ------ | ------ | ------ | ------ |
 | `view` | 改变形状 | CNN → FC 转换 | 视图（共享） |
 | `reshape` | 改变形状（更灵活） | 通用形状变换 | 可能复制 |
 | `squeeze` | 移除维度为 1 的轴 | 移除多余维度 | 视图 |

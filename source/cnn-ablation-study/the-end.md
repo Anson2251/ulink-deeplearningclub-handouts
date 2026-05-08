@@ -1,4 +1,5 @@
 (cnn-ablation-end)=
+
 # 结语：从黑盒到白盒
 
 恭喜！你已经完成了 CNN 消融研究章节的学习。
@@ -27,7 +28,7 @@ graph LR
 ### CNN 组件贡献量化
 
 | 组件 | 移除后准确率下降 | 重要性等级 | 核心作用 |
-|------|----------------|-----------|---------|
+| ---------- | ---------- | ---------- | ---------- |
 | 卷积层 | 12.6% | ⭐⭐⭐ 核心 | 特征提取 |
 | ReLU 激活 | 15.6% | ⭐⭐⭐ 核心 | 引入非线性 |
 | 池化层 | 6.2% | ⭐⭐ 重要 | 降维 + 平移不变性 |
@@ -54,7 +55,7 @@ graph LR
 ### 动手项目（从简单到难）
 
 | 项目名称 | 难度 | 练习重点 | 参考章节 |
-|----------|------|----------|----------|
+| ---------- | ---------- | ---------- | ---------- |
 | **CIFAR-10 消融研究** | ⭐⭐ 基础 | 复现本章实验，验证数据 | 本章完整内容 |
 | **自定义架构消融** | ⭐⭐⭐ 进阶 | 对 ResNet / ViT 做消融研究 | {doc}`../neural-network-basics/cnn-basics` |
 | **超参数消融** | ⭐⭐⭐ 进阶 | 研究学习率 / batch size 的影响 | {doc}`../neural-network-basics/neural-training-basics` |
@@ -102,6 +103,7 @@ graph LR
 ## 学习建议
 
 **建议的实验节奏**：
+
 - **每天 1-2 个消融实验**：先跑基线，再跑消融变体
 - **每次只改一个组件**：否则结果无法归因
 - **每 3-5 个实验做一次总结**：更新组件重要性表格
@@ -109,7 +111,7 @@ graph LR
 ### 常见误区
 
 | ❌ 误区 | ✅ 正确做法 |
-|---------|------------|
+| ---------- | ---------- |
 | 同时改多个组件 | 一次只改一个，确保结果可归因 |
 | 只看最终准确率 | 同时关注损失曲线、收敛速度、参数量 |
 | 不设随机种子 | 固定 seed，保证实验可复现 |
@@ -139,17 +141,20 @@ graph LR
 ## 参考资源汇总
 
 **本章相关理论**：
+
 - {doc}`../neural-network-basics/cnn-basics`：CNN 各组件原理
 - {doc}`../neural-network-basics/neural-training-basics`：正则化与训练技巧
 - {doc}`../pytorch-practice/neural-network-module`：用 nn.Module 搭建网络
 - {doc}`../pytorch-practice/using-framework`：使用框架管理实验
 
 **工具与框架**：
+
 - 社团框架 `mnist-helloworld`：消融实验的训练引擎
 - PyTorch 官方文档：网络层 API 参考
 - Matplotlib 文档：自定义训练曲线绘制
 
 **经典论文中的消融研究**：
+
 - [ResNet: Deep Residual Learning for Image Recognition](https://arxiv.org/abs/1512.03385) — 残差连接的消融
 - [Dropout: A Simple Way to Prevent Neural Networks from Overfitting](https://www.cs.toronto.edu/~hinton/absps/JMLRdropout.pdf) — Dropout 比例的消融
 - [Network In Network](https://arxiv.org/abs/1312.4400) — 全局平均池化 vs 全连接的消融

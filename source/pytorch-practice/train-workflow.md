@@ -21,6 +21,7 @@ flowchart LR
 ```
 
 **核心流程**（对应 {doc}`../neural-network-basics/neural-training-basics`）：
+
 1. **数据准备**：加载数据，划分训练/验证集，创建 DataLoader
 2. **模型定义**：搭建网络架构
 3. **训练循环**：前向传播 → 计算损失 → 反向传播 → 更新参数
@@ -241,6 +242,7 @@ def train_epoch(model, device, train_loader, optimizer, criterion, epoch):
 ```
 
 **训练模式的重要性**：
+
 - `model.train()`：启用 Dropout（随机丢弃神经元）、BatchNorm 使用 batch 统计量
 - `model.eval()`：关闭 Dropout，BatchNorm 使用全局统计量
 
@@ -420,6 +422,7 @@ def plot_history(history):
 ```
 
 **曲线解读**：
+
 - **理想情况**：两条曲线同步下降/上升，差距小
 - **过拟合迹象**：训练准确率持续上升，验证准确率停滞或下降
 - **欠拟合迹象**：两条曲线都停滞在较低水平
@@ -476,7 +479,7 @@ def load_and_predict(model_path, image):
 ### 训练流程回顾
 
 | 步骤 | 关键代码 | 对应理论 |
-|------|---------|---------|
+| ------ | --------- | --------- |
 | 数据加载 | `DataLoader` | {doc}`../neural-network-basics/neural-training-basics` 中的 Batch |
 | 模型定义 | `nn.Module` | {doc}`../neural-network-basics/cnn-basics` |
 | 损失函数 | `CrossEntropyLoss` | {doc}`../math-fundamentals/loss-functions` |
@@ -540,7 +543,7 @@ if __name__ == '__main__':
 **社团的 `mnist-helloworld` 框架**把这些重复劳动封装成了可复用模块。你刚学到的每个手写环节，在框架中都有对应的工程化模块：
 
 | 手动实现（你刚写的） | 框架模块 | 功能 |
-|---------------------|---------|------|
+| --------------------- | --------- | --------- |
 | `DataLoader` + transform | `src/datasets/mnist.py` | 数据集封装，自动下载与预处理 |
 | `class MNISTNet(nn.Module)` | `src/models/` | `BaseModel` 抽象，统一接口 |
 | `for epoch` 训练循环 | `src/training/trainer.py` | `Trainer` 类，封装完整训练逻辑 |

@@ -157,7 +157,7 @@ open runs/exp2/training_curves.png
 ### 对照：手写 vs 框架
 
 | 环节 | 手写实现 | 框架实现 |
-|------|---------|---------|
+| ---------- | ---------- | ---------- |
 | 模型定义 | 继承 `nn.Module` | 继承 `nn.Module`（不变） |
 | 训练循环 | ~90 行 `train_model()` | `Trainer` 类自动处理 |
 | 实验管理 | 手动建目录、命文件名 | `ExperimentManager`，YOLO 自动编号 |

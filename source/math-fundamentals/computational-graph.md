@@ -1,4 +1,5 @@
 (computational-graph)=
+
 # 计算图
 
 ## 什么是计算图？
@@ -6,6 +7,7 @@
 计算图是一种用图来表示数学运算的方法。你可以把它想象成**数据流的管道系统**：数据从输入节点流入，经过各种操作节点（如加法、乘法、激活函数），最终到达输出节点。
 
 这种表示方式有两个核心价值 {cite}`werbos1990backpropagation`：
+
 1. **可视化**：复杂的数学表达式变成清晰的流程图
 2. **自动求导**：为反向传播提供结构基础，让梯度计算自动化
 
@@ -34,6 +36,7 @@
 ```
 
 在这个图中：
+
 - **蓝色节点**：输入变量（$x$, $y$）
 - **红色节点**：操作（加法 $+$、乘法 $\times$）
 - **绿色节点**：最终输出
@@ -95,6 +98,7 @@ print(f"∂f/∂z = {z.grad}")  # 输出: 5.0 (a的值)
 ### 梯度计算的解释
 
 为什么梯度是这些值？根据链式法则：
+
 - $\frac{\partial f}{\partial x} = \frac{\partial f}{\partial a} \cdot \frac{\partial a}{\partial x} = z \cdot 1 = 4$
 - $\frac{\partial f}{\partial y} = \frac{\partial f}{\partial a} \cdot \frac{\partial a}{\partial y} = z \cdot 1 = 4$
 - $\frac{\partial f}{\partial z} = a = 5$
@@ -110,9 +114,9 @@ PyTorch的 `backward()` 自动完成了这些计算。
 - **优化执行**:
 
     通过分析依赖关系，可以：
-    - 确定最优计算顺序
-    - 识别可并行执行的操作
-    - 避免重复计算
+  - 确定最优计算顺序
+  - 识别可并行执行的操作
+  - 避免重复计算
 
 ## 从计算图到神经网络
 
@@ -155,6 +159,7 @@ PyTorch的 `backward()` 自动完成了这些计算。
 ## 总结
 
 {ref}`computational-graph`是深度学习的核心数据结构：
+
 - **前向传播**：数据沿着边流动，计算预测结果
 - **反向传播**：梯度沿着边反向流动，为{ref}`back-propagation`奠定基础
 - **自动求导**：计算图结构让{ref}`back-propagation`的梯度计算自动化
@@ -168,4 +173,3 @@ PyTorch的 `backward()` 自动完成了这些计算。
 ```{bibliography}
 :filter: docname in docnames
 ```
-

@@ -8,6 +8,7 @@
 在 {doc}`../pytorch-practice/index` 中你学会了训练模型，在 {doc}`../cnn-ablation-study/index` 中你学会了验证模型——现在我们将学习如何把模型部署到生产环境，让它真正对外提供服务。
 
 本章将回答四个核心问题：
+
 1. 训练好的 PyTorch 模型如何跨平台导出？
 2. 生产环境需要支持多少并发请求？
 3. 同步推理和异步推理各适合什么场景？
@@ -30,7 +31,7 @@
 ## 本章概览
 
 | 章节 | 内容 | 与前面章节的联系 |
-|------|------|-----------------|
+| ---------- | ---------- | ---------- |
 | {doc}`introduction` | 从训练到生产的完整链路 | {doc}`../pytorch-practice/train-workflow` 中的模型 → 这里导出 |
 | {doc}`onnx-export` | PyTorch 模型导出为 ONNX 格式 | {doc}`../neural-network-basics/le-net` 的 LeNet → 导出示例 |
 | {doc}`serving-architecture` | 模型服务架构设计 | 对比 {doc}`../cnn-ablation-study/experiment-design` 的实验架构 |
@@ -63,7 +64,7 @@ graph LR
 Ferrinx 是社团开源的项目，目标让 ONNX 模型的部署"一个二进制文件，一个配置文件，就能跑起来"——这与 {doc}`../pytorch-practice/using-framework` 中框架的设计哲学一脉相承。你可以在 [GitHub](https://github.com/ulink-deep-learning-club/ferrinx) 找到源码并贡献代码。欢迎提 Issue 和 PR 参与贡献！
 
 | 前置章节 | 本章应用 |
-|---------|---------|
+| ---------- | ---------- |
 | {doc}`../pytorch-practice/train-workflow` | 训练好的模型 → ONNX 导出 |
 | {doc}`../pytorch-practice/using-framework` | 框架使用模式 → 部署实践 |
 | {doc}`../cnn-ablation-study/experiment-design` | 实验管理思维 → 生产环境管理 |

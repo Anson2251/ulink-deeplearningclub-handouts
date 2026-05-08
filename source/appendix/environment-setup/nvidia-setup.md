@@ -1,4 +1,5 @@
 (nvidia-setup)=
+
 # NVIDIA驱动与CUDA：让GPU真正工作
 
 系统装好了，SSH能连上了，然后呢？`python -c "import torch; print(torch.cuda.is_available())"` 返回 `False`——你的GPU还没"醒"过来。
@@ -8,6 +9,7 @@
 > **文档更新**：2026年4月。NVIDIA驱动版本迭代很快，本文信息以当时最新的R595/R580分支为准。建议在[NVIDIA官方驱动下载页](https://www.nvidia.com/en-us/drivers/)确认最新版本。
 
 (nvidia-arch)=
+
 ## 显卡架构简史
 
 每张NVIDIA显卡都基于一个架构代号，不同架构支持的驱动版本、计算特性、深度学习能力都有差异。了解架构是选卡和排错的第一步。
@@ -175,7 +177,7 @@ nvidia-smi
 ### 驱动装不上？常见原因
 
 | 症状 | 原因 | 解决 |
-|------|------|------|
+| ---------- | ---------- | ---------- |
 | `nvidia-smi: command not found` | 驱动没装 | 先 `nvidia-detect` 确认，然后 `sudo apt install nvidia-driver-XXX` |
 | `Failed to initialize NVML: Driver/library version mismatch` | 驱动更新后内核模块没重载 | 重启，或 `sudo rmmod nvidia_uvm nvidia_drm nvidia_modeset nvidia && sudo modprobe nvidia` |
 | `ERROR: You appear to be running an X server` | 有图形界面在运行 | `sudo service lightdm stop` 后重试安装 |
@@ -289,6 +291,7 @@ nvidia-smi --query-gpu=ecc.mode.current --format=csv
 ```
 
 (cuda-compat)=
+
 ## CUDA版本管理
 
 ```{admonition} CUDA Toolkit版本 ≠ nvidia-smi显示的CUDA Version
@@ -355,6 +358,7 @@ pip install torch torchvision torchaudio --index-url https://download.pytorch.or
 ```
 
 (pytorch-gpu)=
+
 ## PyTorch的显卡支持淘汰节奏
 
 驱动和CUDA Toolkit的版本只是第一层兼容。PyTorch有自己的**编译时支持的架构列表**——即使你的驱动和CUDA Toolkit够新，如果PyTorch二进制没编译你家显卡的架构代码，照样跑不了。
@@ -426,7 +430,7 @@ python -c "import torch; print(torch.cuda.get_device_capability())"
 ```
 
 | sm版本 | 架构 | 代表显卡 |
-|--------|------|---------|
+| ---------- | ---------- | ---------- |
 | sm_50 | Maxwell | GTX 750 Ti、GTX 960、GTX 980 |
 | sm_52 | Maxwell | GTX 980 Ti、Titan X (Maxwell) |
 | sm_60 | Pascal | GTX 1080、GTX 1070、GTX 1060 |
@@ -448,6 +452,7 @@ python -c "import torch; print(torch.cuda.get_device_capability())"
 ```
 
 (docker-gpu)=
+
 ## Docker GPU 支持：一劳永逸的环境隔离
 
 驱动和CUDA Toolkit的版本兼容问题是深度学习环境配置中最容易出错的环节。**Docker + nvidia-container-toolkit** 可以一步解决这个问题：宿主机只需要装驱动，PyTorch、CUDA Toolkit、cuDNN这些都放在容器里，互不干扰。
@@ -524,6 +529,7 @@ docker run --gpus all -it --rm \
 ```
 
 (gpu-selection)=
+
 ## GPU选型指南
 
 ### 产品线定位
@@ -630,12 +636,12 @@ docker run --gpus all -it --rm \
 
 买卡之前先看清楚自己属于哪种情况：
 
-**场景一：手里没有GPU，想低成本入门**
+#### 场景一：手里没有GPU，想低成本入门
 
 淘汰的数据中心卡是性价比极高的选择。它们退役后被大批量抛售到二手市场，算力和显存在今天依然能打：
 
 | 显卡 | 显存 | 二手参考价（闲鱼） | Tensor Core | FP32 | 入手价值 |
-|------|------|-------------------|-------------|------|---------|
+| ---------- | ---------- | ---------- | ---------- | ---------- | ---------- |
 | Tesla P100 16GB | 16 GB HBM2 | 300~600 RMB | 无 | 10.6 TFLOPS | 极致低价入门，适合跑传统CNN |
 | Tesla V100 16GB | 16 GB HBM2 | ~1000 RMB | 第1代（FP16） | 15.7 TFLOPS | Tensor Core入门，跑小Transformer |
 | Tesla V100 32GB | 32 GB HBM2 | ~3000 RMB | 第1代（FP16） | 15.7 TFLOPS | 大显存低成本方案 |
@@ -650,7 +656,7 @@ docker run --gpus all -it --rm \
 - 驱动方面R580是最后支持分支，可用至2028年安全更新
 ```
 
-**场景二：手上有卡想升级，或者预算充足**
+#### 场景二：手上有卡想升级，或者预算充足
 
 RTX 20系及以上都值得考虑。深度学习场景下，**显存大小比算力重要得多**——一张老卡只要显存够大，跑大模型的能力就比新卡更强：
 

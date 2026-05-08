@@ -33,7 +33,7 @@ graph LR
 ### PyTorch 核心概念映射
 
 | PyTorch API | 对应理论概念 | 在{doc}`../math-fundamentals/index`中 |
-|-------------|-------------|-------------------------------------|
+| ----------- | ------------- | --------------- |
 | `torch.Tensor` | 张量：多维数组 | {ref}`computational-graph`的数据表示 |
 | `tensor.requires_grad` | 可微分变量 | 计算图中的节点 |
 | `backward()` | 反向传播 | {ref}`back-propagation`的算法实现 |
@@ -63,7 +63,7 @@ graph LR
 ### 动手项目（从简单到复杂）
 
 | 项目名称 | 难度 | 练习重点 | 参考章节 |
-|----------|------|----------|----------|
+| ------ | ------ | ------ | ------ |
 | **MNIST 分类器**（手写） | ⭐ 入门 | 完整训练流程 | {doc}`train-workflow` |
 | **mnist-helloworld**（框架） | ⭐ 入门 | 工程化项目结构、配置管理、实验追踪 | 社团自有框架 `mnist-helloworld/` |
 | **CIFAR-10 ResNet** | ⭐⭐ 基础 | 更深网络、数据增强 | {doc}`../neural-network-basics/cnn-basics` |
@@ -73,20 +73,20 @@ graph LR
 
 ### 官方资源
 
-**PyTorch 官方**
-- [PyTorch 官方教程](https://pytorch.org/tutorials/)：从入门到进阶的完整教程
-- [PyTorch 官方文档](https://pytorch.org/docs/stable/index.html)：最权威的API参考
-- [PyTorch Examples](https://github.com/pytorch/examples)：经典模型的官方实现
+- PyTorch 官方
+  - [PyTorch 官方教程](https://pytorch.org/tutorials/)：从入门到进阶的完整教程
+  - [PyTorch 官方文档](https://pytorch.org/docs/stable/index.html)：最权威的API参考
+  - [PyTorch Examples](https://github.com/pytorch/examples)：经典模型的官方实现
 
-**实践平台**
-- [Kaggle Notebooks](https://www.kaggle.com/code)：大量可运行的PyTorch代码
-- [Google Colab](https://colab.research.google.com/)：免费的GPU环境，适合实验
-- [Papers With Code](https://paperswithcode.com/)：论文+代码，学习SOTA实现
+- 实践平台
+  - [Kaggle Notebooks](https://www.kaggle.com/code)：大量可运行的PyTorch代码
+  - [Google Colab](https://colab.research.google.com/)：免费的GPU环境，适合实验
+  - [Papers With Code](https://paperswithcode.com/)：论文+代码，学习SOTA实现
 
 ### 推荐课程
 
 | 课程 | 适合阶段 | 特点 |
-|------|----------|------|
+| ------ | ------ | ------ |
 | **Fast.ai Practical Deep Learning** | 初学者 | 自上而下，先实践后理论 |
 | **CS231n (Stanford)** | 有基础后 | 计算机视觉经典课程 |
 | **CS224n (Stanford)** | 有基础后 | NLP经典课程 |
@@ -99,40 +99,42 @@ graph LR
 根据你的兴趣和目标，可以选择不同方向深入：
 
 - 方向一：深化理论基础
-    回到{doc}`../math-fundamentals/index`，巩固：
-    - 概率图模型与变分推断
-    - 优化理论的收敛性分析
-    - 泛化理论（为什么深度学习不会过拟合）
+  回到{doc}`../math-fundamentals/index`，巩固：
+  - 概率图模型与变分推断
+  - 优化理论的收敛性分析
+  - 泛化理论（为什么深度学习不会过拟合）
 
 - 方向二：探索新架构
-    在{doc}`../neural-network-basics/index`基础上学习：
-    - ResNet、DenseNet 等现代 CNN 架构
-    - Transformer 在视觉中的应用（ViT）
-    - 生成模型：VAE、GAN、Diffusion
+  在{doc}`../neural-network-basics/index`基础上学习：
+  - ResNet、DenseNet 等现代 CNN 架构
+  - Transformer 在视觉中的应用（ViT）
+  - 生成模型：VAE、GAN、Diffusion Models 等
 
 - 方向三：应用实践
-    通过项目巩固技能：
-    - 参加 Kaggle 竞赛
-    - 复现经典论文
-    - 为开源项目贡献代码
+  通过项目巩固技能：
+  - 参加 Kaggle 竞赛
+  - 复现经典论文
+  - 为开源项目贡献代码
 
-- 方向四：工程优化\n    深入学习{doc}`../neural-network-basics/scaling-law`中提到的：
-    - 分布式训练（Data Parallel / Model Parallel）
-    - 模型压缩与部署
-    - 高效的数据流水线设计
+- 方向四：工程优化
+  深入学习{doc}`../neural-network-basics/scaling-law`中提到的：
+  - 分布式训练（Data Parallel / Model Parallel）
+  - 模型压缩与部署
+  - 高效的数据流水线设计
 
 - 方向五：掌握框架
-    社团的 `mnist-helloworld` 框架将本章所有工程最佳实践集成在一个项目中：
-    - 理解框架的模块设计（config → dataset → model → training → experiment）
-    - 学习如何注册新模型和新数据集（`ModelRegistry`、`DatasetRegistry`）
-    - 用框架复现本章手写的训练流程，对比代码量和维护成本
-    - 通过框架的 GUI demo（`gui-example/`）直观验证模型效果
+  社团的 `mnist-helloworld` 框架将本章所有工程最佳实践集成在一个项目中：
+  - 理解框架的模块设计（config → dataset → model → training → experiment）
+  - 学习如何注册新模型和新数据集（`ModelRegistry`、`DatasetRegistry`）
+  - 用框架复现本章手写的训练流程，对比代码量和维护成本
+  - 通过框架的 GUI demo（`gui-example/`）直观验证模型效果
 
 ---
 
 ## 学习建议
 
 **建议的学习节奏**：
+
 - **每周 5-10 小时**：理论学习 + 代码实践
 - **每月完成 1 个项目**：从 MNIST 开始，逐步挑战更难的任务
 - **每学期精读 1 篇论文**：从 AlexNet 开始，循序渐进
@@ -140,7 +142,7 @@ graph LR
 ### 常见误区
 
 | ❌ 误区 | ✅ 正确做法 |
-|---------|------------|
+| --------- | --------- |
 | 只看教程不写代码 | 每学一个概念就写代码验证 |
 | 追求最新论文 | 先扎实掌握经典方法和基础架构 |
 | 复制粘贴代码 | 从零手敲，加深理解 |
@@ -169,16 +171,19 @@ graph LR
 ## 参考资源汇总
 
 **本章相关理论**：
+
 - {doc}`../math-fundamentals/index`：计算图、反向传播、梯度下降
 - {doc}`../neural-network-basics/index`：全连接网络、CNN、训练技巧
 - {doc}`../transfer-learning/index`：迁移学习、预训练模型
 
 **PyTorch 官方**：
+
 - [PyTorch Tutorials](https://pytorch.org/tutorials/)
 - [PyTorch Documentation](https://pytorch.org/docs/)
 - [PyTorch GitHub](https://github.com/pytorch/pytorch)
 
 **社区资源**：
+
 - [PyTorch Forums](https://discuss.pytorch.org/)：官方论坛
 - [Stack Overflow - PyTorch](https://stackoverflow.com/questions/tagged/pytorch)：问题解答
 - [Reddit r/MachineLearning](https://www.reddit.com/r/MachineLearning/)：前沿讨论

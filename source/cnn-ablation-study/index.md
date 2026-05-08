@@ -1,4 +1,5 @@
 (cnn-ablation-study)=
+
 # CNN 消融研究：理解卷积神经网络各组件的作用
 
 ## 摘要
@@ -25,7 +26,7 @@
 ## 本章概览
 
 | 章节 | 内容 | 与前面章节的联系 |
-|------|------|-----------------|
+| ---------- | ---------- | ---------- |
 | {doc}`introduction` | 什么是消融研究？为什么要做？ | 科学方法论：控制变量法 |
 | {doc}`experiment-design` | 基线模型、实验方案、结果分析 | {doc}`../pytorch-practice/using-framework` 的实验管理 |
 | {doc}`implementation` | 完整的 PyTorch 代码实现 | {doc}`../pytorch-practice/train-workflow` 的实践 |
@@ -54,6 +55,7 @@ graph LR
 前面章节我们学习了 CNN 的各个组件（卷积、池化、激活函数等）以及迁移学习的实践应用。本章我们进入**科学实验阶段**——通过控制变量法，理解每个组件的真正价值。
 
 本章涉及的关键问题：
+
 - 卷积层真的必要吗？去掉会怎样？
 - 激活函数选 ReLU 还是 Sigmoid？为什么？
 - Dropout 能提升多少泛化能力？
@@ -62,7 +64,7 @@ graph LR
 **学习路径**：理解思想 → 设计实验 → 动手实现 → 分析结论
 
 | 前置章节 | 本章应用 |
-|---------|---------|
+| ---------- | ---------- |
 | {doc}`../neural-network-basics/cnn-basics` | 理解卷积层、池化层的作用，作为消融对象 |
 | {doc}`../neural-network-basics/neural-training-basics` | 应用批归一化、Dropout 等正则化技术 |
 | {doc}`../pytorch-practice/neural-network-module` | 搭建实验用的 CNN 模型 |

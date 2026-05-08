@@ -1,4 +1,5 @@
 (se-net)=
+
 # 通道注意力：SE-Net
 
 {ref}`attn-intro` 中我们讨论了注意力的两个维度。先从**通道注意力**开始——这是最简单、最直观的注意力形式，由 SE-Net（Squeeze-and-Excitation Networks）在 2017 年提出 {cite}`hu2018squeeze`。
@@ -44,6 +45,7 @@ s = \sigma(W_2 \cdot \delta(W_1 \cdot z))
 ```
 
 其中：
+
 - $W_1 \in \mathbb{R}^{C/r \times C}$：降维层，先把 $C$ 维压缩到 $C/r$ 维
 - $\delta$：ReLU 激活函数
 - $W_2 \in \mathbb{R}^{C \times C/r}$：升维层，恢复回 $C$ 维
@@ -80,6 +82,7 @@ s = \sigma(W_2 \cdot \delta(W_1 \cdot z))
 ```
 
 **代码要点**：
+
 - `AdaptiveAvgPool2d((1, 1))` 实现 Squeeze：把任意尺寸的特征图压缩到 $1 \times 1$
 - `Linear` 层的输入输出维度由压缩比 $r$ 控制
 - Sigmoid 保证输出在 $(0,1)$ 范围内

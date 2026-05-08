@@ -1,4 +1,5 @@
 (back-propagation)=
+
 # 反向传播算法
 
 ## 反向传播的本质：信用分配
@@ -45,8 +46,6 @@
 ~~~
 ```
 
-
-
 ## 链式法则：梯度的传递机制
 
 {ref}`back-propagation`的核心是**链式法则**（Chain Rule），这是微积分中复合函数求导的基本法则。想象你改变了输入 $x$ 一点点，这个变化会层层传递，最终影响损失 $L$。链式法则告诉我们：**总的影响是各层影响的乘积**。
@@ -54,6 +53,7 @@
 回顾 {doc}`computational-graph` 中讨论的**计算图**概念：神经网络可以被看作是一个由许多简单操作（加法、乘法、激活函数等）组成的图。反向传播正是沿着这个图的边，将梯度从输出传递回输入。
 
 对于复合函数 $z = f(g(x))$，如果 $x$ 变化了 $\Delta x$：
+
 - 首先影响 $g$：$\Delta g \approx \frac{\partial g}{\partial x} \Delta x$
 - 然后影响 $z$：$\Delta z \approx \frac{\partial z}{\partial g} \Delta g$
 - 综合起来：$\Delta z \approx \frac{\partial z}{\partial g} \cdot \frac{\partial g}{\partial x} \cdot \Delta x$
@@ -83,6 +83,7 @@ $$\frac{\partial z}{\partial x} = \frac{\partial z}{\partial g} \cdot \frac{\par
 ```
 
 (jacobian-matrix)=
+
 #### 定义：Jacobian 矩阵
 
 对于向量值函数 $\mathbf{f}: \mathbb{R}^n \rightarrow \mathbb{R}^m$，其 Jacobian 矩阵 $\mathbf{J} \in \mathbb{R}^{m \times n}$ 定义为：
@@ -231,26 +232,26 @@ print(f"∂f/∂y = {y.grad}")  # 输出: 8.0
     \foreach \i in {1,2,3}
         \node[circle, draw=blue!50, fill=blue!20, minimum size=0.6cm] (in\i) at (0,\i) {};
     \node at (-1.2, 2) {输入};
-    
+
     % 隐藏层
     \foreach \i in {1,2,3,4}
         \node[circle, draw=orange!50, fill=orange!20, minimum size=0.6cm] (hid\i) at (3,\i-0.5) {};
     \node at (3, 4.5) {隐藏层};
-    
+
     % 输出层
     \foreach \i in {1,2}
         \node[circle, draw=green!50, fill=green!20, minimum size=0.6cm] (out\i) at (6,\i+0.5) {};
     \node at (7.2, 2) {输出};
-    
+
     % 前向连接（蓝色）
     \foreach \i in {1,2,3}
         \foreach \j in {1,2,3,4}
             \draw[->, blue!30] (in\i) -- (hid\j);
-    
+
     \foreach \i in {1,2,3,4}
         \foreach \j in {1,2}
             \draw[->, blue!30] (hid\i) -- (out\j);
-    
+
     % 反向梯度流（红色箭头）
     \draw[->, red, thick] (5, 0.8) -- (4.5, 0.4);
     \draw[->, red, thick] (5, 3.2) -- (4.5, 3.4);

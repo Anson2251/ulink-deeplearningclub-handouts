@@ -35,7 +35,7 @@
 PyTorch 把上面这些痛苦都解决了：
 
 | 问题 | 手写实现 | PyTorch 方案 |
-|------|---------|-------------|
+| ------ | --------- | ------------- |
 | 数据存储 | Python 列表/NumPy 数组 | `torch.Tensor`：统一的数据结构 |
 | 卷积运算 | 嵌套循环 | `nn.Conv2d`：一行代码 |
 | 反向传播 | 手动推导梯度 | `.backward()`：自动计算 |
@@ -48,7 +48,7 @@ PyTorch 把上面这些痛苦都解决了：
 让我们建立一个"理论→代码"的映射表：
 
 | {doc}`../math-fundamentals/index` 理论 | PyTorch 实现 | {doc}`../neural-network-basics/index` 应用 |
-|--------------------------------------|-------------|-------------------------------------------|
+| ------- | ------------- | --------- |
 | {ref}`computational-graph` | `torch.Tensor` + 运算 | 数据如何在网络中流动 |
 | {ref}`back-propagation` | `.backward()` | 梯度如何回传更新参数 |
 | {ref}`gradient-descent` | `optim.SGD/Adam` | 参数如何一步步优化 |
@@ -125,6 +125,7 @@ $$
 $$
 
 **例子**：`nn.Conv2d` 的背后
+
 - **数学**：卷积运算 $Y[i,j] = \sum_{u,v} X[i+u, j+v] \cdot K[u,v]$
 - **工程**：CuDNN 优化的 GPU 实现，比手写快 100 倍
 
