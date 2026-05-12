@@ -1,6 +1,9 @@
 # Deep Learning Club 学习教程
 
-**Ulink 深度学习社**讲义。面向具备微积分基础的高中生，从理论到实践的深度学习课程。在线文档：[ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts](https://ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts/)
+**Ulink 深度学习社**讲义。面向具备微积分基础的高中生，从理论到实践的深度学习课程。
+
+- 在线文档：[ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts](https://ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts/)
+- PDF 版本：[deeplearningclubhandouts.pdf](build/html/deeplearningclubhandouts.pdf)
 
 ## 项目结构
 
