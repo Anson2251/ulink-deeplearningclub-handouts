@@ -11,6 +11,7 @@
 | -------- | ---------- | ---------- |
 | {doc}`environment-setup/index` | Linux 基础、NVIDIA 驱动、CUDA 配置、远程访问、服务器管理 | 需要自己搭建 GPU 训练环境的读者 |
 | {doc}`sphinx-guide/index` | Sphinx Markdown 语法、图表、交叉引用、文献管理 | 需要为本书贡献内容的写作者 |
+| {doc}`build-docs` | 编译文档（macOS / Linux） | 需要在本地构建 HTML/PDF 的贡献者 |
 
 ~~~{rubric} 阅读建议
 :heading-level: 2
@@ -22,6 +23,7 @@
 附录不是线性章节，遇到具体问题再翻对应部分即可：
 - 训练环境搞不定 → {doc}`environment-setup/index`
 - 不知道怎么写文档 → {doc}`sphinx-guide/index`
+- 不知道怎么编译 → {doc}`build-docs`
 ~~~
 
 ~~~{rubric} 前置知识
@@ -40,4 +42,5 @@
 
 environment-setup/index
 sphinx-guide/index
+build-docs
 ```
