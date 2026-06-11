@@ -176,22 +176,46 @@ extensions = [
 ]
 myst_heading_anchors = 3
 
+
+in_html = False
 if 'html' in sys.argv:
     print("MathJax is enabled for html product")
     extensions.append('sphinx.ext.mathjax')
     extensions.append('contributors')
+    in_html = True
 elif 'epub' in sys.argv:
     print("math-svg conversion is enabled for epub product")
     extensions.append('math2svg')
 
-mermaid_output_format = 'svg'
-mermaid_params = [
-    '--theme', 'neutral',
-    '--backgroundColor', 'transparent',
-    '--scale', '1'             # 1 = actual size, 2 = 2x, etc.
-]
-mermaid_pdfcrop = 'pdfcrop'
-mermaid_cmd = "mmdc -f"
+if not in_html:
+    mermaid_output_format = 'svg'
+    mermaid_params = [
+        '--theme', 'neutral',
+        '--backgroundColor', 'transparent',
+        '--scale', '1'             # 1 = actual size, 2 = 2x, etc.
+    ]
+    mermaid_pdfcrop = 'pdfcrop'
+    mermaid_cmd = "mmdc -f"
+else:
+    # MathJax configuration
+    mathjax3_config = {
+        'tex': {
+            'inlineMath': [['$', '$'], ['\\(', '\\)']],
+            'displayMath': [['$$', '$$'], ['\\[', '\\]']],
+        },
+        'loader': {
+          'load': ['input/tex', 'output/svg']
+        }
+    }
+
+    mermaid_init_config = '''
+    {
+      "theme": "neutral"
+    }
+    '''
+    mermaid_height = "360px"
+
+    mermaid_d3_zoom = True
 
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '.cache']
 
@@ -264,16 +288,7 @@ html_theme_options = {
     "default_mode": "auto",
 }
 
-# MathJax configuration
-mathjax3_config = {
-    'tex': {
-        'inlineMath': [['$', '$'], ['\\(', '\\)']],
-        'displayMath': [['$$', '$$'], ['\\[', '\\]']],
-    },
-    'loader': {
-      'load': ['input/tex', 'output/svg']
-    }
-}
+
 
 
 imgmath_latex = 'lualatex'
