@@ -2,6 +2,8 @@
 
 **Ulink 深度学习社**讲义。面向具备微积分基础的高中生，从理论到实践的深度学习课程。
 
+> **配套参考**：建议与斋藤康毅《深度学习入门：基于Python的理论与实现》（"鱼书"）配合阅读。鱼书教你从零手写神经网络，本材料教你用PyTorch理解原理并动手做项目——两者互补，效果最佳。详见在线文档的[前言](https://ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts/preface.html)。
+
 - 在线文档：[ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts](https://ulink-deep-learning-club.github.io/ulink-deeplearningclub-handouts/)
 - PDF 版本：[deeplearningclubhandouts.pdf](https://github.com/ulink-deep-learning-club/ulink-deeplearningclub-handouts/blob/gh-pages/deeplearningclubhandouts.pdf)
 
