@@ -41,7 +41,7 @@ jobs:
         run: sudo apt update
 
       - name: Install Dependencies
-        run: sudo apt install texlive latex-cjk-all texlive-pictures texlive-latex-extra texlive-extra-utils latexmk pdf2svg texlive-xetex texlive-luatex fonts-noto-cjk fonts-noto-core fonts-noto-extra chromium
+        run: sudo apt install git-lfs texlive latex-cjk-all texlive-pictures texlive-latex-extra texlive-extra-utils latexmk pdf2svg texlive-xetex texlive-luatex fonts-noto-cjk fonts-noto-core fonts-noto-extra chromium
 
       - name: Install Noto Emoji & Roboto Flex Font
         run: |
@@ -55,7 +55,7 @@ jobs:
 
       - name: Install uv
         run: curl -LsSf https://astral.sh/uv/install.sh | sh
-      
+
       - name: Prepare Sphinx
         run: |
             uv venv
@@ -71,6 +71,11 @@ jobs:
             source .venv/bin/activate
             make latexpdf
             mv build/latex/deeplearningclubhandouts.pdf ./build/html # Move PDF to HTML folder for uploading
+
+      - name: Apply git lfs
+        run: |
+          git lfs install
+          git lfs track "*.pdf"
 
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@4.1.0
