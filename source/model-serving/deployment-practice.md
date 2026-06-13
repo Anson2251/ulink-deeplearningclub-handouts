@@ -251,7 +251,7 @@ max_files = 10
 
 ## 从框架到Ferrinx的一体化流程
 
-现在回顾整条链路：从PyTorch代码开始（{doc}`../pytorch-practice/index`），经过模型设计和训练（{doc}`../neural-network-basics/index`），用消融实验验证（{doc}`../cnn-ablation-study/index`），导出为ONNX格式（{doc}`onnx-export`），最后部署到Ferrinx服务（本节）——一条完整的"从研究到生产"的管线就这样建立起来了。
+现在回顾整条链路：从PyTorch代码开始（{doc}`../pytorch-practice/index`），经过模型设计和训练（{doc}`../cnn-expedition/practice-peak/index`），用消融实验验证（{doc}`../cnn-expedition/ablation-study/index`），导出为ONNX格式（{doc}`onnx-export`），最后部署到Ferrinx服务（本节）——一条完整的"从研究到生产"的管线就这样建立起来了。
 
 这种端到端的视角是理解深度学习工程化的关键。每一章学的技能不是孤立的，它们构成了一个完整的工具链：PyTorch让你能做实验，消融研究让你能验证设计，ONNX解决了格式壁垒，Ferrinx解决了部署问题。下一节{doc}`the-end`我们来回顾整条链路，并讨论未来可以深入的方向。
 

@@ -11,8 +11,8 @@
 | 章节 | 内容 | 与前面章节的联系 |
 | ---------- | ---------- | ---------- |
 | {doc}`introduction` | 从训练到生产的完整链路 | {doc}`../pytorch-practice/train-workflow` 中的模型 → 这里导出 |
-| {doc}`onnx-export` | PyTorch 模型导出为 ONNX 格式 | {doc}`../neural-network-basics/le-net` 的 LeNet → 导出示例 |
-| {doc}`serving-architecture` | 模型服务架构设计 | 对比 {doc}`../cnn-ablation-study/experiment-design` 的实验架构 |
+| {doc}`onnx-export` | PyTorch 模型导出为 ONNX 格式 | {doc}`../cnn-expedition/practice-peak/le-net` 的 LeNet → 导出示例 |
+| {doc}`serving-architecture` | 模型服务架构设计 | 对比 {doc}`../cnn-expedition/ablation-study/experiment-design` 的实验架构 |
 | {doc}`deployment-practice` | Ferrinx 服务的部署操作 | {doc}`../pytorch-practice/using-framework` 的框架使用模式 |
 | {doc}`the-end` | 总结与完整 MLOps 链路 | 串联所有章节 |
 
@@ -40,7 +40,7 @@ graph LR
 | ---------- | ---------- |
 | {doc}`../pytorch-practice/train-workflow` | 训练好的模型 → ONNX 导出 |
 | {doc}`../pytorch-practice/using-framework` | 框架使用模式 → 部署实践 |
-| {doc}`../cnn-ablation-study/experiment-design` | 实验管理思维 → 生产环境管理 |
+| {doc}`../cnn-expedition/ablation-study/experiment-design` | 实验管理思维 → 生产环境管理 |
 ```
 
 ```{toctree}

@@ -20,7 +20,7 @@ lecture-material/
 │   ├── neural-network-basics/    # 神经网络基础
 │   ├── pytorch-practice/         # PyTorch 实践
 │   ├── sequence-modeling/        # 序列建模（RNN → Transformer → Mamba）
-│   ├── cnn-ablation-study/       # CNN 消融研究
+│   ├── ablation-study/       # CNN 消融研究
 │   ├── transfer-learning/        # 迁移学习
 │   ├── attention-mechanisms/     # CNN 注意力机制
 │   ├── model-architecture-design/# CNN 架构设计心法

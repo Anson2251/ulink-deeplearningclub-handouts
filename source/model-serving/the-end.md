@@ -3,7 +3,7 @@
 
 恭喜你完成了本课程的全部内容！
 
-回想一下我们走过的路：从{doc}`../math-fundamentals/index`中的计算图和反向传播，到{doc}`../neural-network-basics/index`中的网络架构设计，到{doc}`../pytorch-practice/index`中的代码实现。然后你选择了进阶方向——无论是{doc}`../cnn-ablation-study/index`的系统实验验证、{doc}`../transfer-learning/index`的迁移学习技巧、{doc}`../attention-mechanisms/index`的注意力机制探索、{doc}`../unet-image-segmentation/index`的图像分割实践，还是本章的模型部署——你已经建立了一条**从理论到生产**的完整认知链路。
+回想一下我们走过的路：从{doc}`../math-fundamentals/index`中的计算图和反向传播，到{doc}`../cnn-expedition/practice-peak/index`中的网络架构设计，到{doc}`../pytorch-practice/index`中的代码实现。然后你选择了进阶方向——无论是{doc}`../cnn-expedition/ablation-study/index`的系统实验验证、{doc}`../transfer-learning/index`的迁移学习技巧、{doc}`../cnn-expedition/image-net-era/index`的注意力机制探索、{doc}`../unet-image-segmentation/index`的图像分割实践，还是本章的模型部署——你已经建立了一条**从理论到生产**的完整认知链路。
 
 ## 整条链路的回顾
 
@@ -11,11 +11,11 @@
 
 {doc}`../math-fundamentals/index`回答了"深度学习靠什么数学原理工作"——计算图描述计算过程，反向传播高效计算梯度，梯度下降优化参数。这是理论基础，有了它你才能在面对新问题时理解模型"为什么"会学习。
 
-{doc}`../neural-network-basics/index`回答了"应该建一个什么样的网络"——全连接网络参数爆炸，CNN通过局部感受野和权值共享解决问题，归纳偏置解释了为什么好的架构设计如此重要。有了它你才能判断什么样的任务适合什么样的架构。
+{doc}`../cnn-expedition/practice-peak/index`回答了"应该建一个什么样的网络"——全连接网络参数爆炸，CNN通过局部感受野和权值共享解决问题，归纳偏置解释了为什么好的架构设计如此重要。有了它你才能判断什么样的任务适合什么样的架构。
 
 {doc}`../pytorch-practice/index`回答了"怎么把理论变成可运行的代码"——张量操作、自动微分、优化器、训练循环、调试可视化、工程最佳实践。你终于从"看得懂公式"进化到了"跑得出模型"。
 
-在此之后，你根据自己的兴趣选择了一个或多个进阶方向。{doc}`../cnn-ablation-study/index`回答了"怎么知道我的设计是好的"——通过控制变量法逐个验证每个组件的贡献，让你从"跟着教程搭网络"成长为"用实验验证设计"。{doc}`../transfer-learning/index`让你学会站在前人的肩膀上，用预训练模型快速解决新任务。{doc}`../attention-mechanisms/index`带你进入了现代深度学习最核心的架构范式。{doc}`../unet-image-segmentation/index`则展示了一个完整的专用架构是如何针对特定任务量身定做的。
+在此之后，你根据自己的兴趣选择了一个或多个进阶方向。{doc}`../cnn-expedition/ablation-study/index`回答了"怎么知道我的设计是好的"——通过控制变量法逐个验证每个组件的贡献，让你从"跟着教程搭网络"成长为"用实验验证设计"。{doc}`../transfer-learning/index`让你学会站在前人的肩膀上，用预训练模型快速解决新任务。{doc}`../cnn-expedition/image-net-era/index`带你进入了现代深度学习最核心的架构范式。{doc}`../unet-image-segmentation/index`则展示了一个完整的专用架构是如何针对特定任务量身定做的。
 
 最后，本章回答了"怎么让模型真正产生价值"——ONNX导出解决格式兼容性，服务架构解决并发和扩展问题，认证和限流解决安全问题。模型不再只是你电脑里的一个文件，而是一个真正能对外提供服务的产品。
 
@@ -57,7 +57,7 @@ graph TB
 
 **方向一：模型优化**。ONNX Runtime提供了量化和图优化功能，可以将模型体积缩小数倍、推理速度提升数倍。INT8量化尤其适合边缘设备部署，而FP16/FP8混合精度则适合在最新GPU上获得最大吞吐量。
 
-**方向二：更完善的MLOps**。模型部署之后还有模型监控（数据漂移检测、模型退化预警）、A/B测试、自动回滚等工程挑战。{doc}`../cnn-ablation-study/experiment-design`中的实验方法论在这些场景中同样适用——控制变量、数据驱动、科学决策。
+**方向二：更完善的MLOps**。模型部署之后还有模型监控（数据漂移检测、模型退化预警）、A/B测试、自动回滚等工程挑战。{doc}`../cnn-expedition/ablation-study/experiment-design`中的实验方法论在这些场景中同样适用——控制变量、数据驱动、科学决策。
 
 **方向三：大规模服务架构**。Ferrinx是一个教学工具，生产级的模型服务框架如TensorFlow Serving、TorchServe、NVIDIA Triton Inference Server提供了更丰富的功能：动态批处理、模型流水线、GPU共享、请求调度优化等。
 

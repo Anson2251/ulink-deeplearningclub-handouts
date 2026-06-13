@@ -1,7 +1,7 @@
 (model-serving-intro)=
 # 引言：训练完模型之后
 
-你在{doc}`../pytorch-practice/train-workflow`中完成了模型的训练，在{doc}`../cnn-ablation-study/index`中验证了各组件的贡献，在{doc}`../unet-image-segmentation/index`中用UNet处理了具体的图像分割任务——模型在测试集上跑出了不错的准确率，一切都很好。但现在有一个更现实的问题：**这个模型怎么给别人用？**
+你在{doc}`../pytorch-practice/train-workflow`中完成了模型的训练，在{doc}`../cnn-expedition/ablation-study/index`中验证了各组件的贡献，在{doc}`../unet-image-segmentation/index`中用UNet处理了具体的图像分割任务——模型在测试集上跑出了不错的准确率，一切都很好。但现在有一个更现实的问题：**这个模型怎么给别人用？**
 
 让模型真正产生价值，不是训练完就结束了。你需要考虑的事情比训练多得多：别人怎么调用它？它能同时处理多少个请求？如果图片不是28×28的怎么办？别人会不会把它搞崩溃？这些问题没有一个是训练的loss曲线能回答的。
 
@@ -100,4 +100,4 @@ graph LR
 
 ## 下一步
 
-从{doc}`onnx-export`开始，我们学习如何把PyTorch训练的模型导出为标准ONNX格式。这个过程需要处理一些细节：如何正确处理输入输出命名、如何处理动态batch维度、如何验证导出后的模型和原始模型输出一致——有意思的是，这些细节中的许多都跟{doc}`../cnn-ablation-study/experiment-design`中"控制变量"的思维方式相通：每次只改一个参数，确保结果可复现。
+从{doc}`onnx-export`开始，我们学习如何把PyTorch训练的模型导出为标准ONNX格式。这个过程需要处理一些细节：如何正确处理输入输出命名、如何处理动态batch维度、如何验证导出后的模型和原始模型输出一致——有意思的是，这些细节中的许多都跟{doc}`../cnn-expedition/ablation-study/experiment-design`中"控制变量"的思维方式相通：每次只改一个参数，确保结果可复现。
