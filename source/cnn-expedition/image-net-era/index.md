@@ -13,7 +13,7 @@
 
 | # | 章节 | 叙事节点 | 核心问题 |
 |---|------|---------|---------|
-| ⑧ | {doc}`introduction` | 换山宣言 | 练习峰的技巧，在真山上还管用吗？ |
+| ⑧ | {doc}`introduction` | 一座新的山 | 练习峰的技巧，在真山上还管用吗？ |
 | ⑨ | {doc}`alexnet` | 🟠 首登 ImageNet！ | ReLU + Dropout + GPU——首登的四个关键 |
 | ⑩ | {doc}`inception` | 多尺度工具 | 一种冰镐打不了所有岩壁 |
 | ⑪ | {doc}`res-net` | 高原反应 | 越深越缺氧——跳跃连接就是补给站 |
@@ -29,7 +29,7 @@
 
 ~~~{mermaid}
 graph LR
-    A[换山宣言] --> B[AlexNet<br/>首登]
+    A[一座新的山] --> B[AlexNet<br/>首登]
     B --> C[Inception<br/>多尺度]
     C --> D[ResNet<br/>高原反应]
     D --> E[注意力<br/>学会聚焦]

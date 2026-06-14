@@ -17,6 +17,20 @@
 **每一个架构都不是凭空设计的。每一个突破都是对前一代"为什么摔倒"的深刻回应。**
 ```
 
+```{admonition} 已经熟悉 CNN？这里有快速路线
+:class: tip
+
+这一章非常长——占全书约 40%。如果你已经了解卷积、池化、LeNet 这些基础，不需要从头爬练习峰。
+
+**推荐路线**：
+1. 快速扫一遍 {doc}`登山上篇的引言 <practice-peak/introduction>`，重点看 {ref}`inductive-bias`——它回答了"为什么 CNN 比全连接更适合图像"，是整个上篇的核心洞察
+2. 翻翻 {doc}`消融研究 <ablation-study/index>`——拆开装备、验证每个组件的贡献，这套方法论在任何实验中都有用
+3. 主力时间花在 {doc}`登山下篇 <image-net-era/index>`——AlexNet、Inception、ResNet、MobileNet、EfficientNet，每一个都是对前代"为什么摔倒"的回应
+4. 收尾读 {doc}`架构心法 <model-architecture-design/index>`——把具体技术升维为设计原则
+
+**可以跳过**：{doc}`全连接：赤手空拳 <practice-peak/fc-layer-basics>`、{doc}`卷积：发现装备 <practice-peak/cnn-basics>`、{doc}`数据准备：打包行囊 <practice-peak/dataset-preparation>`（除非你想复习 MNIST 数据管线的细节）。
+```
+
 ---
 
 ## 两座山
