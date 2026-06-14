@@ -16,16 +16,17 @@ lecture-material/
 │   ├── preface.md                # 前言
 │   ├── postscript.md             # 后记
 │   ├── references.bib            # 全局参考文献
-│   ├── math-fundamentals/        # 数学基础
-│   ├── neural-network-basics/    # 神经网络基础
-│   ├── pytorch-practice/         # PyTorch 实践
-│   ├── sequence-modeling/        # 序列建模（RNN → Transformer → Mamba）
-│   ├── cnn-ablation-study/       # CNN 消融研究
-│   ├── transfer-learning/        # 迁移学习
-│   ├── attention-mechanisms/     # CNN 注意力机制
-│   ├── model-architecture-design/# CNN 架构设计心法
+│   ├── math-fundamentals/        # 数学基础（计算图、反向传播、梯度下降）
+│   ├── cnn-expedition/           # CNN 架构演化（全书最长的章节）
+│   │   ├── practice-peak/        #   上篇：练习峰（全连接→CNN→LeNet）
+│   │   ├── ablation-study/       #   消融研究（验证每个组件的贡献）
+│   │   ├── image-net-era/        #   下篇：未登峰（AlexNet→Inception→ResNet→MobileNet→EfficientNet）
+│   │   └── model-architecture-design/  # 架构心法（感受野、深度连接、注意力、效率四维度）
+│   ├── pytorch-practice/         # PyTorch 实践（训练流程、框架使用、最佳实践）
+│   ├── model-serving/            # 模型部署（ONNX 导出、量化剪枝、服务架构、Ferrinx 部署）
+│   ├── transfer-learning/        # 迁移学习（微调、域适应、小样本学习）
+│   ├── sequence-modeling/        # 序列建模（RNN→LSTM→Transformer→Mamba）
 │   ├── unet-image-segmentation/  # U-Net 图像分割
-│   ├── model-serving/            # 模型部署
 │   └── appendix/                 # 附录（环境配置、Sphinx 写作指南）
 ├── legacy-doc/                   # 已归档的 LaTeX 文档
 └── _static/                      # 静态资源（图片等）
