@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
@@ -5,6 +6,7 @@ class CNNWithBN(nn.Module):
     """
     带批归一化(Batch Normalization)的CNN
     批归一化放在卷积后、激活前是标准做法
+    注意：除增加BN外，其余结构与基线完全一致（含Dropout），确保单一变量
     """
     def __init__(self):
         super(CNNWithBN, self).__init__()
@@ -16,11 +18,12 @@ class CNNWithBN(nn.Module):
         self.pool = nn.MaxPool2d(2, 2)
         self.fc1 = nn.Linear(64 * 8 * 8, 512)
         self.fc2 = nn.Linear(512, 10)
+        self.dropout = nn.Dropout(0.5)
 
     def forward(self, x):
         x = self.pool(F.relu(self.bn1(self.conv1(x))))
         x = self.pool(F.relu(self.bn2(self.conv2(x))))
         x = x.view(-1, 64 * 8 * 8)
-        x = F.relu(self.fc1(x))
+        x = self.dropout(F.relu(self.fc1(x)))
         x = self.fc2(x)
         return x
